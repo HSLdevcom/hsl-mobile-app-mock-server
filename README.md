@@ -32,7 +32,9 @@ yarn install
 ### "Production"
 
 Build
-* `npm run build`
+```
+npm run build
+```
 
 Start the server
 ```
@@ -47,9 +49,9 @@ The server will be running at http://localhost:4000/graphql/
 Example query:
 ```shell
 curl -X POST \
--H "Content-Type: application/json" \
--d '{"query": "{ posts { id } }"}' \
-http://localhost:4000/graphql
+  http://localhost:4000/graphql \
+  -H 'content-type: application/json' \
+  -d '{"query":"query UserProfileQuery(\n  $token: String!\n) {\n  userQuery(accessToken: $token) {\n    username\n    fullName\n  }\n}\n","variables":{"token":"PUT_THE_ACCESS_TOKEN_HERE"}}'
 ```
 
 ### Dev
