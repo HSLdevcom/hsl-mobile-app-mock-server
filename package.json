@@ -1,0 +1,45 @@
+{
+  "name": "hsl-mobile-app-mock-server",
+  "version": "0.0.1",
+  "description": "simple express graphql oauth mock server",
+  "main": "server.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon server --exec babel-node --presets es2015,stage-2",
+    "lint": "eslint server.js lib data",
+    "lint:fix": "npm run lint -- --fix",
+    "start": "cd dist && NODE_ENV=production node server",
+    "prod": "NODE_ENV=production node server.js",
+    "test": "npm run lint",
+    "build-server": "babel server.js -o ./dist/server.js && babel data/*.js --out-dir dist && babel data/resolvers/* --out-dir dist && babel lib/*.js --out-dir dist",
+    "build": "npm run clean && npm run copy && npm run build-server",
+    "clean": "rimraf dist",
+    "copy": "mkdir -p dist/data && mkdir -p dist/lib && mkdir -p dist/views && cp -r views/* dist/views/ && mkdir -p dist/config && cp -r config/* dist/config && cp package.json dist/"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "config": "^1.25.1",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-oauth-server": "^2.0.0-b1",
+    "graphql": "^0.9.1",
+    "graphql-server-express": "^0.6.0",
+    "graphql-tools": "^0.10.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=6.11.1"
+  }
+}

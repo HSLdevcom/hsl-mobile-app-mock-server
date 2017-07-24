@@ -1,0 +1,18 @@
+<form class="mui-form" method="post" action="/oauth/token">
+  <input type="hidden" name="client_id" value="{{client_id}}">
+  <input type="hidden" name="client_secret" value="{{client_secret}}">
+  <input type="hidden" name="redirect_uri" value="{{redirect_uri}}">
+  <input type="hidden" name="redirect" value="{{redirect}}">
+  <input type="hidden" name="grant_type" value="{{grant_type}}">
+  <div class="mui-textfield">
+    <label for="username">Username</label>
+    <input name="username" id="username" placeholder="username">
+  </div>
+  <div class="mui-textfield">
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="password">
+  </div>
+  <div>
+    <button class="mui-btn mui-btn--raised">Login</button>
+  </div>
+</form>
