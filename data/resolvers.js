@@ -10,7 +10,7 @@ export default {
       const user = Query.userQuery(_, data);
       if (user) {
         const editedUser = Object.assign({}, user, { fullName: data.fullName });
-        return InMemoryCache.editUser(data.id, editedUser);
+        return InMemoryCache.editUser(editedUser.id, editedUser);
       }
       return false;
     },
