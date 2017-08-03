@@ -24,6 +24,11 @@ const SchemaDefinition = `
   type User {
     username: String!
     fullName: String
+    address: String
+    phone: String
+    email: String
+    gender: String
+    age: Int
   }
   type Mutation {
     editFullName (
